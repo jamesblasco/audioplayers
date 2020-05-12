@@ -180,7 +180,17 @@ class AudioplayersPlugin {
           return 1;
         }
       case 'seek':
+        {
+          final player = getOrCreatePlayer(playerId);
+          final int position = call.arguments['position'];
+          print(position);
+          player.player.currentTime = position/1000;
+          return 1;
+        }
       case 'setPlaybackRate':
+        {
+          return 1;
+        }
       default:
         throw PlatformException(
           code: 'Unimplemented',
