@@ -183,10 +183,11 @@ class AudioplayersPlugin {
       case 'seek':
         {
           final player = getOrCreatePlayer(playerId);
-          final int position = call.arguments['position'];
+          final int position = call.arguments['position'] ?? 0;
           print(playerId);
           print(position);
-          player.player?.currentTime = position / 1000;
+          player.pause();
+          player.start(position / 1000);
           return 1;
         }
       case 'setPlaybackRate':
