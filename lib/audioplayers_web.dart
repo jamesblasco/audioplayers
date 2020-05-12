@@ -127,6 +127,7 @@ class AudioplayersPlugin {
       case 'setUrl':
         {
           final String url = call.arguments['url'];
+          print(playerId);
           await setUrl(playerId, url);
           return 1;
         }
@@ -183,8 +184,9 @@ class AudioplayersPlugin {
         {
           final player = getOrCreatePlayer(playerId);
           final int position = call.arguments['position'];
+          print(playerId);
           print(position);
-          player.player?.currentTime = position/1000;
+          player.player?.currentTime = position / 1000;
           return 1;
         }
       case 'setPlaybackRate':
