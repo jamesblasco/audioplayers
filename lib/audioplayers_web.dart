@@ -184,7 +184,7 @@ class AudioplayersPlugin {
           final player = getOrCreatePlayer(playerId);
           final int position = call.arguments['position'];
           print(position);
-          player.player.currentTime = position/1000;
+          player.player?.currentTime = position/1000;
           return 1;
         }
       case 'setPlaybackRate':
